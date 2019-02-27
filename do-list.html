@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <title>Document</title>
+   <center><h1>To-do-list</h1></center>
+</head>
+<body>
+        <div style="text-align: center">
+        <input type="date" id="text" />
+        <input type="textbox" placeholder="Enter text...." id="text1" />
+           <input type="button"  value="Add List" onclick="addList('ToDoListTable')" style="color:green">
+           <input type="button" value="Delete List" onclick="deleteList('ToDoListTable')" style="color:red" >
+           </div>
+        <table id="ToDoListTable" border="1px">
+        </table>
+<script>
+function Items(Table) {
+var table = document.getElementById(Table);
+var rowCount = table.rows.length;
+var row = table.insertRow(rowCount);
+var textrecieve=document.getElementById('text').value;
+ var cell1 = row.insertCell(0);
+            var element1 = document.createElement("input");
+            element1.type = "date";
+            element1.style.width="100%";
+            element1.name = "txtbox[]";
+            element1.value=a;
+            cell1.appendChild(element1);
+            document.getElementById('text').value=" ";
+var textrecieve1=document.getElementById('text1').value;
+var cell2 = row.insertCell(1);
+var element2 = document.createElement("input");
+element2.type = "text";
+element2.style.width="100%";
+element2.name = "txtbox[]";
+element2.value=b;
+cell2.appendChild(element2);
+var cell3 = row.insertCell(2);
+var element3 = document.createElement("input");
+element3.type = "checkbox";
+element3.name="chkbox[]";
+cell3.appendChild(element3);
+document.getElementById('text1').value=" ";
+}
+   function deleteList(myTable) {
+var table = document.getElementById(myTable);
+var rowCount = table.rows.length;
+for(var count=0; count<rowCount; i++) {
+    var row = table.rows[i];
+    var chkbox = row.cells[2].childNodes[0];
+    if(null != chkbox && true == chkbox.checked) {
+        table.deleteRow(i);
+        rowCount--;
+        count--;
+}
+}
+}
+</script>
+<style>
+#ToDoListTable{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top:10%;
+}
+</style>
+</body>
+</html>
